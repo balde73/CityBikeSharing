@@ -1,0 +1,86 @@
+body{
+
+}
+
+.map-box{
+	display: flex;
+	flex-direction: row;
+}
+
+.map-box .map{
+	flex: 1;
+}
+
+.map-box .controller{
+	display: flex;
+	height: 100%;
+	width: 100%;
+	max-width: 350px;
+	flex-direction: column;
+}
+
+.controller .scroll-container{
+	flex: 1;
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+image-text{
+	display: block;
+	position: relative;
+	min-height: 60px;
+}
+
+image-text .image{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 60px;
+	width: 	60px;
+}
+
+image-text .text{
+	padding-left: 70px;
+}
+
+.utils{
+	display: none;
+}
+
+/* quando una stazione viene aperta */
+.zoom-station .station{
+	display: none;
+}
+
+.station.is-open{
+	display: block;
+
+	image-text .image{
+		position: static;
+		height: 300px;
+		width: 	100%;
+	}
+
+	image-text .text{
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		padding-left: 0;
+		padding: 10px;
+		padding-top: 40px;
+		color: white;
+
+		background: linear-gradient(to top, rgba(0,0,0,.70)0%, rgba(0,0,0,.40)45%, transparent 100%);
+	}
+
+	.utils{
+		display: block;
+		padding: 10px 0;
+
+		.bike{
+			height: 26px;
+			padding: 4px;
+		}
+	}
+
+}
