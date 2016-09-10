@@ -19,7 +19,7 @@
 			<div class="space-line op2"></div>
 			<div class="scroll-container">
 				<ul class="padd10">
-					<li ng-class="{'is-open' : station.isOpen}" ng-repeat="station in stations" class="station">
+					<li ng-click="openStation(station)" ng-class="{'is-open' : station.isOpen}" ng-repeat="station in stations" class="station">
 						<image-text>
 							<div class="image">
 								<div class="Bred all-height"></div>

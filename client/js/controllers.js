@@ -6,7 +6,7 @@ angular.module('app', ['app.services'])
     map.init();
     previusOpenStation = null;
 
-    var openStation = function( station ){
+    $scope.openStation = function( station ){
     	$scope.currentStation = station;
     	console.log( station );
 
@@ -24,7 +24,7 @@ angular.module('app', ['app.services'])
 		$scope.stations = stations;
 		console.log(stations);
 
-		map.addMarkers( $scope.stations, openStation );
+		map.addMarkers( $scope.stations, $scope.openStation );
 
 		map.center();
 	});
