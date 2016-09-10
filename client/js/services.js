@@ -248,9 +248,6 @@ angular.module('app.services', [])
 	        self.bounds.extend(marker.position);
 
 	        marker.addListener('click', function() {
-	        	// centro la mappa
-			    self.map.panTo(marker.getPosition());
-
 			    // chiamo la funzione in controller
 			    callbackListener( station );
 			});
@@ -270,7 +267,8 @@ angular.module('app.services', [])
 	return {
 		addMarkers: addMarkers,
 		init: init,
-		center: center
+		center: center,
+		centerTo: centerTo
 	}
 
 })

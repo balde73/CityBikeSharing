@@ -10,6 +10,10 @@ angular.module('app', ['app.services'])
     	if( station != $scope.currentStation ){
 	    	$scope.currentStation = station;
 	    	station.isOpen = true;
+	    	MapService.centerTo({
+	    		'lat' : station.position[0],
+	    		'lng' : station.position[1]
+	    	})
 
 	    	if(previusOpenStation)
 	    		previusOpenStation.isOpen = false;
