@@ -7,17 +7,17 @@ angular.module('app', ['app.services'])
     previusOpenStation = null;
 
     $scope.openStation = function( station ){
-    	$scope.currentStation = station;
-    	console.log( station );
+    	if( station != $scope.currentStation ){
+	    	$scope.currentStation = station;
+	    	station.isOpen = true;
 
-    	station.isOpen = true;
+	    	if(previusOpenStation)
+	    		previusOpenStation.isOpen = false;
+	    	previusOpenStation = station;
 
-    	if(previusOpenStation)
-    		previusOpenStation.isOpen = false;
-    	previusOpenStation = station;
-
-    	// applico la modifica
-    	$scope.$apply();
+	    	// applico la modifica
+	    	$scope.$apply();
+	    }
     }
 
 	BikeService.getStations(function( stations ){
