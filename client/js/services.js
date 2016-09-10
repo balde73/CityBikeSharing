@@ -44,8 +44,16 @@ angular.module('app.services', [])
     				callback);
     }
 
+    var addPhotos = function( stations ){
+    	angular.forEach(stations, function( station ){
+    		station.photo = "https://maps.googleapis.com/maps/api/streetview?size=800x800&location="+station.position[0]+","+station.position[1]+"&fov=90&heading=235&pitch=10&key=AIzaSyC3r5VYy6WFPtkxrXPT9WmtUlZdbWEKhI8"
+    	});
+    	return stations;
+    }
+
     return{
-		getStations: getStations
+		getStations: getStations,
+		addPhotos: addPhotos
 	}
 })
 
@@ -64,7 +72,7 @@ angular.module('app.services', [])
 	        center: new google.maps.LatLng(45.8946295, 11.043914), // initial position
 
 	        // Styling the map
-	        styles: [
+	        /*styles: [
 	                    {
 	                        "featureType": "administrative",
 	                        "elementType": "labels.text.fill",
@@ -215,7 +223,7 @@ angular.module('app.services', [])
 	                            }
 	                        ]
 	                    }
-	                ]
+	                ]*/
 	    }
 
 	    var mapElement = document.getElementById('map');

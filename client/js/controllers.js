@@ -21,7 +21,7 @@ angular.module('app', ['app.services'])
     }
 
 	BikeService.getStations(function( stations ){
-		$scope.stations = stations;
+		$scope.stations = BikeService.addPhotos( stations );
 		console.log(stations);
 
 		map.addMarkers( $scope.stations, $scope.openStation );

@@ -22,21 +22,23 @@
 					<li ng-click="openStation(station)" ng-class="{'is-open' : station.isOpen}" ng-repeat="station in stations" class="station">
 						<image-text>
 							<div class="image">
-								<div class="Bred all-height"></div>
+								<div class="Blight-gray all-height">
+									<img ng-src="{{station.photo}}" class="all-width">
+								</div>
 							</div>
 							<div class="text">
 								<div class="paddTB5">
 									<h2 class="wb">{{ station.name }}</h2>
 									<p class="font80 op7 paddT2">{{ station.address }}</p>
 								</div>
-								<div class="font90">
+								<div class="paddT10">
 									<div class="">
-										<span class="wb">{{ station.bikes }}</span>/{{ station.totalSlots }} bici disponibili
+										<span class="font120">{{ station.bikes }}</span><img src="/assets/img/small_bike.png" class="split bike"> disponibili
 									</div>
 								</div>
 							</div>
 						</image-text>
-						<div class="utils">
+						<div class="utils Bblue">
 							<div class="bikes">
 								<img src="/assets/img/small_bike.png" class="split bike" ng-repeat="i in range(station.bikes)">
 							</div>

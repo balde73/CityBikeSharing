@@ -32,23 +32,28 @@ body{
 image-text{
 	display: block;
 	position: relative;
-	min-height: 60px;
+	min-height: 80px;
 }
 
 image-text .image{
 	position: absolute;
 	top: 0;
 	left: 0;
-	height: 60px;
-	width: 	60px;
+	height: 80px;
+	width: 	80px;
 }
 
 image-text .text{
-	padding-left: 70px;
+	padding-left: 90px;
 }
 
 .utils{
 	display: none;
+}
+
+.bike{
+	height: 16px;
+	margin-left: 5px;
 }
 
 /* quando una stazione viene aperta */
@@ -57,12 +62,15 @@ image-text .text{
 }
 
 .station.is-open{
+	padding: 0;
 	display: block;
 
 	image-text .image{
 		position: static;
-		height: 300px;
+		height: auto;
 		width: 	100%;
+
+		animation: appear .4s;
 	}
 
 	image-text .text{
@@ -80,11 +88,21 @@ image-text .text{
 	.utils{
 		display: block;
 		padding: 10px 0;
-
-		.bike{
-			height: 26px;
-			padding: 4px;
-		}
 	}
 
+}
+
+@-webkit-keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    45% {
+        opacity: 0.25;
+    }
+    70% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
 }
