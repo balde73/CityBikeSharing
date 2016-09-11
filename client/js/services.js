@@ -99,6 +99,8 @@ angular.module('app.services', [])
 	        	bikeString += '<div class="dot Bgreen"></div>';
 	        for( var i=0; i<station.slots; i++ )
 	        	bikeString += '<div class="dot Blight-gray"></div>';
+	        for( var i=0; i<(station.totalSlots-station.slots-station.bikes); i++ )
+	        	bikeString += '<div class="dot Bred"></div>';
 
 	        var contentString = '<div class="padd5 wb">'+
 	        						station.name+
