@@ -7,7 +7,6 @@ angular.module('app', ['app.services'])
 
     $scope.openStation = function( station ){
     	if( station != $scope.currentStation ){
-
     		// now current is previous!
     		if($scope.currentStation)
 	    		$scope.currentStation.isOpen = false;
@@ -20,6 +19,8 @@ angular.module('app', ['app.services'])
 	    		'lng' : station.position[1]
 	    	})
 	    }
+	    // applico la modifica
+	    $scope.$apply();
     }
 
     $scope.closeStation = function(){
