@@ -62,6 +62,7 @@ angular.module('app.services', [])
 	this.map = null;
 	this.bounds = null;
 	this.infowindow = null;
+	this.clickwindow = null;
 
 	var init = function(){
 		var mapOptions = {
@@ -80,6 +81,7 @@ angular.module('app.services', [])
 	    this.map = new google.maps.Map(mapElement, mapOptions);
 	    this.bounds = new google.maps.LatLngBounds();
 		this.infowindow = new google.maps.InfoWindow();
+		this.clickwindow = new google.maps.InfoWindow();
 	}
 
 	var addMarkers = function( stations, callbackListener ){
@@ -89,13 +91,47 @@ angular.module('app.services', [])
 
 			var marker = new google.maps.Marker({
 	            position: {lat: station.position[0], lng: station.position[1]},
-	            title: 'Hello World!',
 	            map: self.map
 	        });
 
+	        var bikeString = '';
+	        for( var i=0; i<station.bikes; i++ )
+	        	bikeString += '<div class="dot Bgreen"></div>';
+	        for( var i=0; i<station.slots; i++ )
+	        	bikeString += '<div class="dot Blight-gray"></div>';
+
+	        var contentString = '<div class="padd5 wb">'+
+	        						station.name+
+	        						'<div class="op6 font80">'+
+	        							station.address+
+	        						'</div>'+
+	      							'<div class="paddT10">'+bikeString+'</div>'+
+	        					'</div>';
+
 	        self.bounds.extend(marker.position);
 
+	        var closePopUp = function(){
+	        	if (self.infowindow)
+			        self.infowindow.close();
+	        }
+
+	        var openPopUp = function(thiswindow){
+		        thiswindow.setContent(contentString);
+	        	// apro il popup
+	        	thiswindow.open(self.map, marker);
+	        }
+
+	        marker.addListener('mouseover', function() {
+	        	closePopUp();
+	        	openPopUp(self.infowindow);
+	        });
+
+	        marker.addListener('mouseout', function() {
+	        	closePopUp();
+	        });
+
 	        marker.addListener('click', function() {
+	        	openPopUp(self.clickwindow);
 			    // chiamo la funzione in controller
 			    callbackListener( station );
 			});
@@ -113,11 +149,18 @@ angular.module('app.services', [])
 		this.map.setZoom(13);
 	}
 
+	var reset = function(){
+		this.center();
+		this.infowindow.close();
+		this.clickwindow.close();
+	}
+
 	return {
 		addMarkers: addMarkers,
 		init: init,
 		center: center,
-		centerTo: centerTo
+		centerTo: centerTo,
+		reset: reset
 	}
 
 })

@@ -10,6 +10,10 @@ body{
 .Cgreen{
 	color: #98D57D;
 }
+.Bgreen{
+	background-color: #98D57D;
+	color: black;
+}
 
 [ng-click]{
 	cursor: pointer;
@@ -29,6 +33,14 @@ body{
 i{
 	height: 24px;
 	cursor: initial;
+}
+
+.dot{
+	height: 12px;
+	width: 12px;
+	border-radius: 100%;
+	display: inline-block;
+	margin-right: 1px;
 }
 
 .icon-text{

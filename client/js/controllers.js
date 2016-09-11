@@ -24,7 +24,7 @@ angular.module('app', ['app.services'])
     }
 
     $scope.closeStation = function(){
-    	MapService.center();
+    	MapService.reset();
     	$scope.currentStation.isOpen = false;
     	$scope.currentStation = null;
     }
