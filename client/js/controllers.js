@@ -8,7 +8,7 @@ angular.module('app', ['app.services'])
     $scope.openStation = function( station ){
     	if( station != $scope.currentStation ){
 
-    		// current is previous!
+    		// now current is previous!
     		if($scope.currentStation)
 	    		$scope.currentStation.isOpen = false;
 
@@ -19,9 +19,6 @@ angular.module('app', ['app.services'])
 	    		'lat' : station.position[0],
 	    		'lng' : station.position[1]
 	    	})
-
-	    	// applico la modifica
-	    	$scope.$apply();
 	    }
     }
 
@@ -29,9 +26,6 @@ angular.module('app', ['app.services'])
     	MapService.center();
     	$scope.currentStation.isOpen = false;
     	$scope.currentStation = null;
-
-    	// applico la modifica
-	    $scope.$apply();
     }
 
 	BikeService.getStations(function( stations ){
@@ -44,14 +38,9 @@ angular.module('app', ['app.services'])
 
 
 	$scope.range = function(count){
-		var ratings = []; 
-
-		for (var i = 0; i < count; i++) { 
-			ratings.push(i) 
-		} 
-
+		var ratings = [];
+		for (var i = 0; i < count; i++)
+			ratings.push(i)
 		return ratings;
 	}
-
-    $scope.ciao = "piacere";
 });

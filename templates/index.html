@@ -52,15 +52,18 @@
 									<h2 class="wb">{{ station.name }}</h2>
 									<p class="font80 op7 paddT2">{{ station.address }}</p>
 								</div>
-								<div class="paddT10 badge">
-									<div class="i-align">{{ station.bikes }}<span class="op6">/{{ station.totalSlots}}</span></div>
-									<i class="material-icons">&#xE52F;</i>
+								<div class="paddT2">
+									<div class="badge Cgreen">
+										<div class="i-align">{{ station.bikes }}<span class="op6">/{{ station.totalSlots}}</span></div>
+										<i class="material-icons">&#xE52F;</i>
+									</div>
 								</div>
 							</div>
 						</image-text>
-						<div class="utils Bblue">
+						<div class="utils">
 							<div class="bikes">
-								<i class="material-icons" ng-repeat="i in range(station.bikes)">&#xE52F;</i>
+								<i class="material-icons Cgreen" ng-repeat="i in range(station.bikes)">&#xE52F;</i>
+								<i class="material-icons op2" ng-repeat="i in range(station.slots)">&#xE52F;</i>
 							</div>
 						</div>
 					</li>

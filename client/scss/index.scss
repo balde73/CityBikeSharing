@@ -6,6 +6,11 @@ body{
 	color: black;
 }
 
+
+.Cgreen{
+	color: #98D57D;
+}
+
 [ng-click]{
 	cursor: pointer;
 }
@@ -23,6 +28,7 @@ body{
 
 i{
 	height: 24px;
+	cursor: initial;
 }
 
 .icon-text{
@@ -86,8 +92,8 @@ image-text .text{
 .badge{
 	padding: 8px;
 	border-radius: 4px;
-	border: 1px solid #98D57D;
-	color: #98D57D;
+	border: 1px solid;
+	border-color: inherit;
 	display: inline-block;
 }
 
@@ -122,6 +128,7 @@ image-text .text{
 .station.is-open{
 	padding: 0;
 	display: block;
+	cursor: initial;
 
 	image-text .image{
 		position: static;
