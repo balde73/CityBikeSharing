@@ -2,6 +2,10 @@ body{
 
 }
 
+.Cblack{
+	color: black;
+}
+
 [ng-click]{
 	cursor: pointer;
 }
@@ -79,13 +83,28 @@ image-text .text{
 	padding-left: 90px;
 }
 
+.badge{
+	padding: 8px;
+	border-radius: 4px;
+	border: 1px solid #98D57D;
+	color: #98D57D;
+	display: inline-block;
+}
+
+.badge .i-align, .badge i{
+	font-size: 16px;
+	line-height: 16px;
+	display: inline-flex;
+	vertical-align: middle;
+	height: auto;
+}
+
 .utils{
 	display: none;
 }
 
-.bike{
-	height: 16px;
-	margin-left: 5px;
+.bikes i{
+	padding: 4px 6px;
 }
 
 /* quando una stazione viene aperta */
@@ -126,7 +145,7 @@ image-text .text{
 
 	.utils{
 		display: block;
-		padding: 10px 0;
+		padding: 10px;
 	}
 
 }

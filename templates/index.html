@@ -52,16 +52,15 @@
 									<h2 class="wb">{{ station.name }}</h2>
 									<p class="font80 op7 paddT2">{{ station.address }}</p>
 								</div>
-								<div class="paddT10">
-									<div class="">
-										<span class="font120">{{ station.bikes }}</span><img src="/assets/img/small_bike.png" class="split bike"> disponibili
-									</div>
+								<div class="paddT10 badge">
+									<div class="i-align">{{ station.bikes }}<span class="op6">/{{ station.totalSlots}}</span></div>
+									<i class="material-icons">&#xE52F;</i>
 								</div>
 							</div>
 						</image-text>
 						<div class="utils Bblue">
 							<div class="bikes">
-								<img src="/assets/img/small_bike.png" class="split bike" ng-repeat="i in range(station.bikes)">
+								<i class="material-icons" ng-repeat="i in range(station.bikes)">&#xE52F;</i>
 							</div>
 						</div>
 					</li>
