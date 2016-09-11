@@ -4,24 +4,34 @@ angular.module('app', ['app.services'])
 
 	map = MapService;
     map.init();
-    previusOpenStation = null;
 
     $scope.openStation = function( station ){
     	if( station != $scope.currentStation ){
+
+    		// current is previous!
+    		if($scope.currentStation)
+	    		$scope.currentStation.isOpen = false;
+
+	    	// update currentStation
 	    	$scope.currentStation = station;
-	    	station.isOpen = true;
+	    	$scope.currentStation.isOpen = true;
 	    	MapService.centerTo({
 	    		'lat' : station.position[0],
 	    		'lng' : station.position[1]
 	    	})
 
-	    	if(previusOpenStation)
-	    		previusOpenStation.isOpen = false;
-	    	previusOpenStation = station;
-
 	    	// applico la modifica
 	    	$scope.$apply();
 	    }
+    }
+
+    $scope.closeStation = function(){
+    	MapService.center();
+    	$scope.currentStation.isOpen = false;
+    	$scope.currentStation = null;
+
+    	// applico la modifica
+	    $scope.$apply();
     }
 
 	BikeService.getStations(function( stations ){
@@ -29,7 +39,6 @@ angular.module('app', ['app.services'])
 		console.log(stations);
 
 		map.addMarkers( $scope.stations, $scope.openStation );
-
 		map.center();
 	});
 

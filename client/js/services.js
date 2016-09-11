@@ -257,6 +257,7 @@ angular.module('app.services', [])
 
 	var centerTo = function( pos ){
 		this.map.panTo( pos );
+		this.map.setZoom(15);
 	}
 
 	var center = function(){

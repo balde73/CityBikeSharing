@@ -5,6 +5,8 @@
 	<title>CityBikeSharing</title>
 	<link rel="stylesheet" type="text/css" href="https://rawgit.com/balde73/creativeGo/Staging/css/creativeGo.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3r5VYy6WFPtkxrXPT9WmtUlZdbWEKhI8"></script>
 	<script src="assets/angular.js"></script>
 	<script type="text/javascript" src="js/build.js"></script>
@@ -13,10 +15,29 @@
 	<div ng-controller="BikeController" class="all-height map-box">
 
 		<div ng-class="{ 'zoom-station' : currentStation }" class="controller all-height Bwhite m-card-2">
-			<div class="search-box all-inside padd10">
-				<input class="no-border font90" ng-value="currentStation.name" type="" name="">
+			<!-- testata -->
+			<div class="">
+				<div class="default-intro">
+					<div class="no-border font90 padd10">
+						CityBikeSharing
+					</div>
+				</div>
+				<div class="station-intro">
+					<div class="padd10 flex fd-row">
+						<div class="">
+							<i ng-click="closeStation()" class="material-icons">&#xE896;</i> <!-- back to list -->
+						</div>
+						<div class="icon-text ptleft occupy-all">
+							{{currentStation.name}}
+						</div>
+						<div class="">
+							<i ng-click="closeStation()" class="material-icons">&#xE14C;</i> <!-- clear -->
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="space-line op2"></div>
+			<!-- corpo -->
 			<div class="scroll-container">
 				<ul class="padd10">
 					<li ng-click="openStation(station)" ng-class="{'is-open' : station.isOpen}" ng-repeat="station in stations" class="station">

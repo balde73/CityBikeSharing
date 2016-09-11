@@ -6,6 +6,32 @@ body{
 	cursor: pointer;
 }
 
+.flex{
+	display: flex;
+}
+
+.flex.fd-row{
+	flex-direction: row;
+}
+.flex.fd-column{
+	flex-direction: column;
+}
+
+i{
+	height: 24px;
+}
+
+.icon-text{
+	line-height: 24px;
+}
+.icon-text.ptleft{
+	padding-left: 24px;
+}
+
+.occupy-all{
+	flex: 1;
+}
+
 .map-box{
 	display: flex;
 	flex-direction: row;
@@ -21,6 +47,12 @@ body{
 	width: 100%;
 	max-width: 350px;
 	flex-direction: column;
+}
+
+/* menu-laterale */
+
+.station-intro{
+	display: none;
 }
 
 .controller .scroll-container{
@@ -58,6 +90,13 @@ image-text .text{
 
 /* quando una stazione viene aperta */
 .zoom-station .station{
+	display: none;
+}
+
+.zoom-station .station-intro{
+	display: block;
+}
+.zoom-station .default-intro{
 	display: none;
 }
 
